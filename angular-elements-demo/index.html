@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>ngEurope - ngElements</title>
+</head>
+
+<body>
+  <h3>My awesome rating is
+    <span id="rating">4</span>
+  </h3>
+
+  <my-rating rating="3"></my-rating>
+
+  <br>
+  <button id="ratingBtn">Give max rating</button>
+
+  <script src="dist/ngElement.bundle.js"></script>
+  <script>
+    const ratingComponent = document.querySelector('my-rating');
+    const ratingText = document.querySelector('#rating');
+    const ratingButton = document.querySelector('#ratingBtn');
+
+    ratingComponent.addEventListener('ratingChange', (data) => {
+      ratingText.innerHTML = ratingComponent.rating + 1;
+    });
+
+    ratingButton.addEventListener('click', () => {
+      ratingComponent.rating = 4;
+    });
+  </script>
+
+</body>
+
+</html>
